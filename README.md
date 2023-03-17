@@ -202,9 +202,11 @@ forge script script/ERC20.s.sol:ERC20Deploy --rpc-url $RPC_URL --private-key $PR
 
 Ideally Forge should be able to verify your smart contract right after deploying it. But if that doesn't work, we can deploy and then verify our smart contract in two sequential commands:
 
-`````shell
+
+````shell
 forge script script/ERC20.s.sol:ERC20Deploy --rpc-url $RPC_URL --broadcast  -vvvv
 ````
+
 ````shell
 forge verify-contract --chain-id 97 --num-of-optimizations 200 --watch --compiler-version v0.8.17+commit.8df45f5f <Smart Contract address> src/ERC20.sol:MyToken $ETHERSCAN_API_KEY 
 ````
