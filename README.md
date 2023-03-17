@@ -200,16 +200,14 @@ To deploy the ERC20 contract using our script, run-
 forge script script/ERC20.s.sol:ERC20Deploy --rpc-url $RPC_URL --private-key $PRIVATE_KEY --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY -vvvv
 ```
 
-To deploy using the forge create command-
+Ideally Forge should be able to verify your smart contract right after deploying it. But if that doesn't work, we can deploy and then verify our smart contract in two sequential commands:
 
-    forge create --rpc-url $RPC_URL \                                                                                  --private-key $PRIVATE_KEY src/ERC20.sol/MyToken \
-    --etherscan-api-key $ETHERSCAN_API_KEY \
-    --verify
-
-Ideally Forge should be able to verify your smart contract right after deploying it. But if that doesn't work, we can also verify pre-existing smart contracts by running this command-
-
-    forge verify-contract --chain-id 5 --num-of-optimizations 200 --watch --compiler-version v0.8.17+commit.8df45f5f <YOUR_SMART_CONTRACT_ADDRESS> src/ERC20.sol:MyToken $ETHERSCAN_API_KEY
- 
+`````shell
+forge script script/ERC20.s.sol:ERC20Deploy --rpc-url $RPC_URL --broadcast  -vvvv
+````
+````shell
+forge verify-contract --chain-id 97 --num-of-optimizations 200 --watch --compiler-version v0.8.17+commit.8df45f5f <Smart Contract address> src/ERC20.sol:MyToken $ETHERSCAN_API_KEY 
+````
 
 > Note- Foundry allows you to set the number of optimizations in `foundry.toml`. The default value is 200. This value needs to be passed as a parameter to the forge verify command. Also be careful to specify the exact compiler version.
 
