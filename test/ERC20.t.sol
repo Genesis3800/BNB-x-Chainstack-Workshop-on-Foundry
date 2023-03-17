@@ -41,10 +41,10 @@ contract ERC20Test is Test {
     }
 
 
-    function testMinting1(address fuzz) public {
+    function testMinting1() public {
     vm.startPrank(alpha);
     vm.expectRevert("Ownable: caller is not the owner");
-    erc20.mint(fuzz, 10*(10**18));
+    erc20.mint(beta, 10*(10**18));
     vm.stopPrank();
     console2.log(erc20.balanceOf(beta));
     }

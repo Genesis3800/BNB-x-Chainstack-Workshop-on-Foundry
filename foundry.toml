@@ -2,12 +2,13 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
-solc = "0.8.16"
 
-[rpc_endpoints]
-bscscan = "https://nd-137-194-595.p2pify.com/daaa4cdcd5e3d4377eaa3dce2f1773dc"
+# delete this in workshop
+# solc = "0.8.16"
 
+
+#delete this in workshop
 [etherscan]
-unknownchain = { key = "${ETHERSCAN_API_KEY}", url = "https://api-testnet.bscscan.com/" }
+bscscan = { key = "${ETHERSCAN_API_KEY}", url = "https://api-testnet.bscscan.com/" }
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
